@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        git branch: 'main', url: 'https://github.com/notshaangoswami/java-ci-cd-project.git'
+                        git branch: 'main', url: 'https://github.com/notshaangoswami/journal-app-backened.git'
                     } catch (Exception e) {
                         error "Git checkout failed: ${e.message}"
                     }
