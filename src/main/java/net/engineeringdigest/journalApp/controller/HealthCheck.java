@@ -10,5 +10,4 @@ public class HealthCheck {
     public String healthCheck(){
         return "Hello World4";
     }
-
 }
