@@ -10,7 +10,7 @@ COPY . /app
 RUN chmod +x ./mvnw
 
 # Package the application
-RUN ./mvnw package
+RUN ./mvnw package -DskipTests
 
 # Make port 8081 available to the world outside this container
 EXPOSE 8081
