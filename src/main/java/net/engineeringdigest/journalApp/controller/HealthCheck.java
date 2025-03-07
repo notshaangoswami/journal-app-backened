@@ -8,7 +8,7 @@ public class HealthCheck {
 
     @GetMapping
     public String topPage(){
-        return "home page 1";
+        return "home page new";
     }
     @GetMapping("/hello")
     public String healthCheck(){
