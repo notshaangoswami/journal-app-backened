@@ -22,7 +22,6 @@ pipeline {
             }
         }
 
-
         stage('Build') {
             steps {
                 script {
@@ -49,7 +48,7 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        stage('Deploy to render') {
             steps {
                 script {
                     echo 'Deploying Application...'
