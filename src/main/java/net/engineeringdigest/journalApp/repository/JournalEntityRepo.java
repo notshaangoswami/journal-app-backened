@@ -6,3 +6,4 @@
 //public interface JournalEntityRepo extends MongoRepository<JournalEntity, String> {
 //
 //}
+
