@@ -58,6 +58,7 @@ pipeline {
                                 -Dsonar.sources=src \
                                 -Dsonar.host.url=$SONARQUBE_URL \
                                 -Dsonar.login=$SONAR_TOKEN
+                                -Dsonar.java.binaries=target/classes
                             '''
                         }
                     }
