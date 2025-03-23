@@ -55,10 +55,11 @@ pipeline {
                             sh '''
                                 sonar-scanner \
                                 -Dsonar.projectKey=journal-projectKey \
-                                -Dsonar.sources=src \
+                                 -Dsonar.sources=src/main/java \
+                                 -Dsonar.java.binaries=target/classes \
                                 -Dsonar.host.url=$SONARQUBE_URL \
                                 -Dsonar.token=$SONAR_TOKEN
-                                -Dsonar.java.binaries=target/classes
+
                             '''
                         }
                     }
