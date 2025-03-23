@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         PATH = "$PATH:/opt/homebrew/bin/mvn" // Ensure Maven is accessible
-         SONARQUBE_URL = 'SonarQube'  // Name given in Jenkins SonarQube settings
+         SONARQUBE_URL = 'http://localhost:9000'  // Name given in Jenkins SonarQube settings
          SONAR_TOKEN = credentials('sonarqube-token')  // ID from Jenkins Credentials
     }
 
