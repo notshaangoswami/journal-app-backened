@@ -3,6 +3,8 @@ pipeline {
 
     environment {
         PATH = "$PATH:/opt/homebrew/bin/mvn" // Ensure Maven is accessible
+         SONARQUBE_URL = 'SonarQube'  // Name given in Jenkins SonarQube settings
+         SONAR_TOKEN = credentials('sonarqube-token')  // ID from Jenkins Credentials
     }
 
     tools {
@@ -47,6 +49,28 @@ pipeline {
                 }
             }
         }
+         stage('SonarQube Analysis') {
+                    steps {
+                        withSonarQubeEnv('SonarQube') {
+                            sh '''
+                                sonar-scanner \
+                                -Dsonar.projectKey=journal-projectKey \
+                                -Dsonar.sources=src \
+                                -Dsonar.host.url=$SONARQUBE_URL \
+                                -Dsonar.login=$SONAR_TOKEN
+                            '''
+                        }
+                    }
+                }
+                 stage('Quality Gate') {
+                            steps {
+                                script {
+                                    timeout(time: 5, unit: 'MINUTES') {
+                                        waitForQualityGate abortPipeline: true
+                                    }
+                                }
+                            }
+                        }
 
         stage('Deploy to render') {
             steps {
