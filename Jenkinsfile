@@ -57,7 +57,7 @@ pipeline {
                                 -Dsonar.projectKey=journal-projectKey \
                                 -Dsonar.sources=src \
                                 -Dsonar.host.url=$SONARQUBE_URL \
-                                -Dsonar.login=$SONAR_TOKEN
+                                -Dsonar.token=$SONAR_TOKEN
                                 -Dsonar.java.binaries=target/classes
                             '''
                         }
